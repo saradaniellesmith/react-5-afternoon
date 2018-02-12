@@ -6,14 +6,14 @@ const UPDATE_FOUND = "UPDATE_FOUND";
 const UPDATE_AGENT = "UPDATE_AGENT";
 const UPDATE_COST = "UPDATE_COST";
 const UPDATE_DOWN_PAYMENT = "UPDATE_DOWN_PAYMENT";
-const CREDIT = "CREDIT";
-const HISTORY = "HISTORY";
-const ADDRESS1 = "ADDRESS1";
-const ADDRESS2 = "ADDRESS2";
-const ADDRESS3 = "ADDRESS3";
-const FIRST_NAME = "FIRST_NAME";
-const LAST_NAME = "LAST_NAME";
-const EMAIL = "EMAIL";
+const UPDATE_CREDIT = "UPDATE_CREDIT";
+const UPDATE_HISTORY = "UPDATE_HISTORY";
+const UPDATE_ADDRESS1 = "UPDATE_ADDRESS1";
+const UPDATE_ADDRESS2 = "UPDATE_ADDRESS2";
+const UPDATE_ADDRESS3 = "UPDATE_ADDRESS3";
+const UPDATE_FIRST_NAME = "UPDATE_FIRST_NAME";
+const UPDATE_LAST_NAME = "UPDATE_LAST_NAME";
+const UPDATE_EMAIL = "UPDATE_EMAIL";
 
 
 export function updateLoanType (loanType) {
@@ -50,6 +50,83 @@ export function updateFound(found) {
         payload: found
     };
 };
+
+export function updateAgent(agent) {
+    return {
+        type: UPDATE_AGENT,
+        payload: agent
+    };
+};
+
+export function updateCost(cost) {
+    return {
+        type: UPDATE_COST,
+        payload: cost
+    };
+};
+
+export function updateDownPayment( payment ) {
+    return {
+      type: UPDATE_DOWN_PAYMENT,
+      payload: payment
+    };
+  };
+  
+  export function updateCredit( credit ) {
+    return {
+      type: UPDATE_CREDIT,
+      payload: credit
+    };
+  };
+  
+  export function updateHistory( history ) {
+    return {
+      type: UPDATE_HISTORY,
+      payload: history
+    };
+  };
+  
+  export function updateAddress1( address ) {
+    return {
+      type: UPDATE_ADDRESS1,
+      payload: address
+    };
+  };
+  
+  export function updateAddress2( address ) {
+    return {
+      type: UPDATE_ADDRESS2,
+      payload: address
+    };
+  };
+  
+  export function updateAddress3( address ) {
+    return {
+      type: UPDATE_ADDRESS3,
+      payload: address
+    };
+  };
+  
+  export function updateFirst( first ) {
+    return {
+      type: UPDATE_FIRST_NAME,
+      payload: first
+    };
+  };
+  
+  export function updateLast( last ) {
+    return {
+      type: UPDATE_LAST_NAME,
+      payload: last
+    };
+  };
+  
+  export function updateEmail( email ) {
+    return {
+      type: UPDATE_EMAIL,
+      payload: email
+    };
+  };
 
 const initialState = {
     loanType: 'Home Purchase',
@@ -88,6 +165,39 @@ function reducer( state = initialState, action ){
         case UPDATE_FOUND:
             return Object.assign( {}, state, {found: action.payload});
 
+        case UPDATE_AGENT:
+            return Object.assign( {}, state, {realEstateAgent: action.payload});
+
+        case UPDATE_COST:
+            return Object.assign( {}, state, {cost: action.payload});   
+            
+        case UPDATE_DOWN_PAYMENT:
+            return Object.assign( {}, state, {downPayment: action.payload}); 
+        
+        case UPDATE_CREDIT:
+            return Object.assign( {}, state, {credit: action.payload});
+
+        case UPDATE_HISTORY:
+            return Object.assign( {}, state, {history: action.payload});
+        
+        case UPDATE_ADDRESS1:
+            return Object.assign( {}, state, {addressOne: action.payload});
+
+        case UPDATE_ADDRESS2:
+            return Object.assign( {}, state, {addressTwo: action.payload});
+
+        case UPDATE_ADDRESS3:
+            return Object.assign( {}, state, {addressThree: action.payload});
+
+        case UPDATE_FIRST_NAME:
+            return Object.assign( {}, state, {firstName: action.payload});
+
+        case UPDATE_LAST_NAME:
+            return Object.assign( {}, state, {lastName: action.payload});
+
+        case UPDATE_EMAIL:
+            return Object.assign( {}, state, {email: action.payload});
+        
         default: return state;
     };
 };
